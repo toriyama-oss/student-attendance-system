@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Attendance System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Student Attendance System</h1>
+      <p>Manage students and record daily attendance.</p>
+    </div>
+    <span class="badge">Local demo</span>
+  </header>
+
+  <main class="container">
+    <section class="stats" aria-label="Attendance summary">
+      <article class="stat-card"><span>Total students</span><strong id="totalStudents">0</strong></article>
+      <article class="stat-card"><span>Present today</span><strong id="presentToday">0</strong></article>
+      <article class="stat-card"><span>Absent today</span><strong id="absentToday">0</strong></article>
+    </section>
+
+    <section class="panel">
+      <h2>Add a student</h2>
+      <form id="studentForm" class="student-form">
+        <label>Student name <input id="studentName" type="text" placeholder="e.g. Jane Wanjiku" required></label>
+        <label>Admission number <input id="admissionNo" type="text" placeholder="e.g. BIT/001/26" required></label>
+        <button type="submit">Add student</button>
+      </form>
+      <p id="formMessage" class="message" role="status"></p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><h2>Attendance register</h2><p>Choose a date, then mark each student.</p></div>
+        <label class="date-label">Attendance date <input id="attendanceDate" type="date"></label>
+      </div>
+      <div class="toolbar">
+        <input id="searchInput" type="search" placeholder="Search name or admission number">
+        <button id="markAllPresent" class="secondary" type="button">Mark all present</button>
+        <button id="exportCsv" class="secondary" type="button">Export CSV</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Student</th><th>Admission No.</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody id="attendanceBody"></tbody>
+        </table>
+      </div>
+      <p id="emptyMessage" class="empty">No students added yet. Add a student above to get started.</p>
+    </section>
+  </main>
+  <footer>Student Attendance System · Data is saved in this browser.</footer>
+  <script src="script.js"></script>
+</body>
+</html>
